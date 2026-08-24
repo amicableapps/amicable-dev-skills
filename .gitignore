@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+node_modules/
+.skills.json
+skills-lock.json
+*.log
+__pycache__/
+.pytest_cache/

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Feature Docs Builder"
+  short_description: "Plan a feature into a spec/design/tasks doc pack, optionally with an implementation prompt."
+  default_prompt: "Use $feature-docs-builder to plan this feature into a doc pack for later implementation."

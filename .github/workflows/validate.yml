@@ -1,0 +1,54 @@
+name: Validate skills
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Discover skills via npx skills
+        run: |
+          set -euo pipefail
+          OUTPUT=$(npx --yes skills add . --list)
+          echo "$OUTPUT"
+          echo "$OUTPUT" | grep -q "feature-docs-builder"
+      - name: README lists every skill
+        run: |
+          set -euo pipefail
+          missing=0
+          while IFS= read -r skill_md; do
+            name=$(sed -n '/^---$/,/^---$/p' "$skill_md" | awk '/^name:/{print $2; exit}')
+            if [ -z "$name" ] || ! grep -q "$name" README.md; then
+              echo "Missing from README: ${name:-unknown} ($skill_md)"
+              missing=1
+            else
+              echo "OK $name"
+            fi
+          done < <(find skills -name SKILL.md)
+          exit "$missing"
+
+  spec:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install skills-ref
+      - name: Validate Agent Skills spec
+        run: |
+          set -euo pipefail
+          for dir in skills/*/; do
+            echo "Validating $dir"
+            agentskills validate "$dir"
+          done
