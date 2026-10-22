@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend Structure"
+  short_description: "Choose, install and keep a frontend folder structure: dependency flow, boundaries, import rules, scout-rule migration."
+  default_prompt: "Use $frontend-structure to assess this frontend's folder structure and say where this belongs."
