@@ -28,6 +28,7 @@ Check before the final response of any planning run. The deliverable is a plan, 
 - Open decisions from the project registry were asked or recorded — never assumed.
 - No feature code was written, no scaffolding, no dependency installs.
 - The user was asked exactly once whether they want an implementation prompt; if yes, it exists beside the doc pack and stands alone.
+- When an open start contract exists and an implementation prompt was made, the prompt lists every Ready when line verbatim with its Check, tells the executor to run each `Check: agent` command once and paste its pass or fail line, marks each check on a new test file as test-first, and lists each `Check: human` line as left for the user.
 - If no project layer exists, running `feature-docs-builder adapt` was suggested once.
 
 ## Final Report
