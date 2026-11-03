@@ -35,7 +35,8 @@ Before any planning decision:
 1. **Project layer.** If `references/project.md` exists in this skill (created by `adapt`), load it and obey its overrides: stack, personas, doc placement, quality gates, skill routing, standing policies. It wins over the generic defaults below.
 2. **Project context files.** Read whichever exist at the repo root (or where the project layer points): `PRODUCT.md`, `DESIGN.md`, `AGENTS.md` / `CLAUDE.md`, `README`. Do not invent product facts these files could answer.
 3. **Codebase shape.** If `graphify-out/GRAPH_REPORT.md` exists, read it before any broad architecture or multi-file investigation. Otherwise explore only as much of the repo as the feature touches: where similar features live, naming conventions, existing quality gates (typecheck, tests, lint).
-4. If no project layer exists, proceed with generic defaults and, once the plan is delivered, suggest running `feature-docs-builder adapt` once so future runs know this project.
+4. **Start contract.** If `.agents/starts/` holds a `Status: open` file for this feature (written by a-new-start), read it. Its Ready when, Do not touch, and Blocking bind the plan, and its Ready when lines with their `Check:` lines travel into the implementation prompt.
+5. If no project layer exists, proceed with generic defaults and, once the plan is delivered, suggest running `feature-docs-builder adapt` once so future runs know this project.
 
 ## Companion Skills
 

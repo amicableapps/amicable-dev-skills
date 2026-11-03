@@ -59,3 +59,24 @@ DSL rules: one artifact per coherent feature; stable kebab-case ids; explicit re
 - Unresolved open questions from the spec become explicit decision points in the prompt — the executor must ask, never guess.
 - The prompt must stand alone: a reader with only this file and the repo can implement the feature.
 - End the prompt with the doc pack's verification section and an instruction to update the docs if implementation diverges from the plan.
+
+## Start Contract Checks
+
+Use this when Preflight found an open start contract. The executor reads this prompt, not the contract, so the checks travel inside it.
+
+In the prompt's verification, copy every Ready when line verbatim with its Check under it, in the contract's shape:
+
+```markdown
+- <Ready when line>
+  - Check: agent `<command>` | human
+```
+
+A line with no Check is copied as `Check: human`. Copy the contract's Do not touch into the forbidden states.
+
+Write these instructions into the prompt:
+
+- Run every `Check: agent` command once, from the repo root, after the change exists and before reporting done. Paste each command's pass or fail line into the report. Done means every agent check has a passing line.
+- A `Check: agent` that names a test file not yet in the repo is test-first: write that test first, run it and paste its failing line, then make the change and paste its passing line. In the plan, the task that writes the test comes before the task that makes it pass.
+- List each `Check: human` line in the report as left for the user, unchecked.
+
+When no line has `Check: agent`, say so at the top of the prompt: an unattended run cannot implement this start.
