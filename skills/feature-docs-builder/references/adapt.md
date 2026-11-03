@@ -8,7 +8,7 @@ Run when: the skill is first vendored into a repo, the stack or conventions chan
 
 Gather everything recoverable from the repo before asking the user anything:
 
-- **Stack**: package manifests, lockfiles, framework config, backend/database layer, language, monorepo layout.
+- **Stack**: package manifests, lockfiles, framework config, backend/database layer, language, monorepo layout. For integrations relevant to planning, note authoritative config paths and runtime constraints; distinguish declared version ranges from resolved versions. Keep feature-specific integration choices in that feature's design, not in this overlay.
 - **Feature placement**: where existing features live (`src/features/`, `app/`, `packages/*`, domain folders). Find two or three examples and name the actual pattern, not the aspirational one.
 - **Docs conventions**: existing `docs/`, `_docs/`, ADR folders, RFC templates, wikis referenced from the README.
 - **Quality gates**: real commands for typecheck, tests, lint, codegen — from package scripts, CI config, or contributor docs.

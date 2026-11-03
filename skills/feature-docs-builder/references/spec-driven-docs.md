@@ -101,6 +101,25 @@ Entities, fields, validation, derived data, indexes/access paths.
 - <manual checks: happy path, one failure state, one denied path if role-sensitive>
 ```
 
+## Integration Contract (when relevant)
+
+When a feature adds, replaces, or combines libraries, services, or runtime capabilities, include a compact integration section in `design.md`. Omit it for changes that do not affect integrations; do not create a separate inventory of the whole stack.
+
+Record the current and proposed configuration, distinguishing existing choices, explicit user requirements, dependency-implied additions, and unresolved choices. For each affected integration, capture only what changes an implementation decision:
+
+- Purpose, required dependencies, incompatible or overlapping responsibilities, and runtime/version constraints. Check transitive requirements that affect compatibility; task order alone does not establish compatibility.
+- Evidence: relevant repo path or authoritative source matching the version resolved by the lockfile or installed package. For a new integration, state a proposed target version and supporting source; the executor must confirm the eventual resolved version and compatibility. Distinguish proposed versions, manifest ranges, and resolved versions. If an unfamiliar API or compatibility claim cannot be verified, record the uncertainty and its impact instead of asserting support.
+- Setup impact: affected files, initialization/providers, environment variable names and where they are supplied (never secret values), external setup, and consequences of replacement or removal where relevant.
+- Resolution and status: existing, proposed, confirmed, or blocking; why this option serves the requirement. Keep deliberately open decisions open and carry blockers into the handoff. Do not silently replace a user-required library or service to resolve a conflict.
+
+Turn setup dependencies into tasks and carry confirmed choices into the implementation prompt by reference or embedding. Keep `design.md` authoritative for this feature; the project overlay holds durable project conventions, not a duplicate feature configuration.
+
+## Behavioral Verification
+
+For each user story, make acceptance observable: starting data/state, action, expected result, and the check that proves it. Reuse the existing story acceptance and verification sections; no extra test document is required. When a specific library or service is a requirement, include how to verify its actual use in the relevant flow; its presence in a manifest or an unused import is insufficient.
+
+Distinguish static checks from runtime behavior. A passing build or typecheck does not prove an interaction works. Name the appropriate browser, API, job, or real-host check for the behavior, and mark unavailable verification as pending rather than successful. These are checks for the later executor; this skill does not start the application.
+
 ## tasks.md Template
 
 ```md
