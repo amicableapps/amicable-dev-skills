@@ -35,7 +35,7 @@ Before any planning decision:
 1. **Project layer.** If `references/project.md` exists in this skill (created by `adapt`), load it and obey its overrides: stack, personas, doc placement, quality gates, skill routing, standing policies. It wins over the generic defaults below.
 2. **Project context files.** Read whichever exist at the repo root (or where the project layer points): `PRODUCT.md`, `DESIGN.md`, `AGENTS.md` / `CLAUDE.md`, `README`. Do not invent product facts these files could answer.
 3. **Codebase shape.** If `graphify-out/GRAPH_REPORT.md` exists, read it before any broad architecture or multi-file investigation. Otherwise explore only as much of the repo as the feature touches: where similar features live, naming conventions, existing quality gates (typecheck, tests, lint).
-4. **Start contract.** If `.agents/starts/` holds a `Status: open` file for this feature (written by a-new-start), read it. Its Ready when, Do not touch, and Blocking bind the plan, and its Ready when lines with their `Check:` lines travel into the implementation prompt.
+4. **Start contract.** If `.agents/starts/` in the repo's main checkout (the first entry of `git worktree list`) holds a `Status: open` file for this feature (written by a-new-start), read it. A linked worktree's own `.agents/starts/` only points there. Its Ready when, Do not touch, and Blocking bind the plan, and its Ready when lines with their `Check:` lines travel into the implementation prompt.
 5. If no project layer exists, proceed with generic defaults and, once the plan is delivered, suggest running `feature-docs-builder adapt` once so future runs know this project.
 
 ## Companion Skills
@@ -56,7 +56,7 @@ If either is not installed, do not emulate it. Note the gap and propose `feature
    - `hardening`: improving an existing feature — edge cases, states, coupling, production readiness. Use the lens matching what the feature originally was, and plan against current behavior: document what exists before proposing changes.
 2. **Draft the feature brief** the lens defines. Fill it from repo and context files first; only what genuinely cannot be recovered becomes a question.
 3. **Surface open decisions early.** Batch product- or architecture-significant questions into one round. Never resolve a decision the project layer or context files list as open; ask, or record it as an open question in the spec.
-4. **Write the doc pack** per [references/spec-driven-docs.md](references/spec-driven-docs.md). Only the files that earn their keep. Placement: feature-adjacent when code ownership is known, central planning folder marked temporary when it is not (details in the reference; project layer overrides both).
+4. **Write the doc pack** per [references/spec-driven-docs.md](references/spec-driven-docs.md). When the feature adds, replaces, or combines integrations, use its conditional Integration Contract to resolve compatibility and setup before ordering tasks. Only the files that earn their keep. Placement: feature-adjacent when code ownership is known, central planning folder marked temporary when it is not (details in the reference; project layer overrides both).
 5. **Report the plan** concisely: what was decided, what stays open, where the docs live.
 6. **Ask exactly once:** *"Do you want an implementation prompt too?"* If yes, load [references/implementation-prompt.md](references/implementation-prompt.md) and produce it. If no, stop.
 7. **Before finishing**, check [references/definition-of-done.md](references/definition-of-done.md) and report anything unmet.
