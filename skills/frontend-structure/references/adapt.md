@@ -9,7 +9,7 @@ Make the skill fit one repository without editing its base files. The output is
 - Layer folders, their aliases (`$lib`, `@/`), and framework-placed folders (routes).
 - Marker prefixes already in use and their maps.
 - The gates: type check, build, lint, tests, and any boundary tool.
-- Companion skills installed (`feature-sliced-design`, `atomic-design-fundamentals`, others).
+- Companion skills installed (`feature-sliced-design`, `atomic-design`, `atomic-design-fundamentals`, others).
 
 Ask only for what the repo cannot tell, in one round.
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Atomic Design"
+  short_description: "Place components in an Atomic Design kit, keep their API to typed variants, and migrate UI into the kit by the scout rule."
+  default_prompt: "Use $atomic-design to say which level this component belongs to and what its props should be."
