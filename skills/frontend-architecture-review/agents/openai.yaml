@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend Architecture Review"
+  short_description: "Review a frontend diff against the repo's architecture, API, security, design-system, accessibility and testing conventions."
+  default_prompt: "Use $frontend-architecture-review to review this branch before I open a merge request."
