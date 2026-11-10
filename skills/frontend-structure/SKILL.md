@@ -4,7 +4,7 @@ description: "Decide and keep the file and folder structure of a frontend codeba
 license: MIT
 metadata:
   author: amicableapps
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Frontend structure
@@ -67,7 +67,7 @@ Before any command except `install` on an empty repo:
 2. **Agent files.** Read the structure sections of `AGENTS.md` / `CLAUDE.md` (for example an Atomic
    Design or Feature-Sliced Design migration section) and the maps they link in `docs/architecture/`.
    Their rules bind; this skill does not restate or override them.
-3. **Companion skills.** If `feature-sliced-design` or `atomic-design-fundamentals` is installed and
+3. **Companion skills.** If `feature-sliced-design` or `atomic-design` (this catalog's; `atomic-design-fundamentals` elsewhere) is installed and
    the repo uses that structure, use it for that structure's own rules (layers, segments, public
    API, atoms and molecules). This skill owns the parts they do not: choosing between structures,
    dependency direction across the whole repo, groups, and the scout-rule workflow.
