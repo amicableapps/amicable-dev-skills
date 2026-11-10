@@ -35,6 +35,7 @@ Manage installed skills with `npx skills list`, `npx skills update`, and `npx sk
 | Skill | What it's for |
 | ----- | ------------- |
 | [`feature-docs-builder`](./skills/feature-docs-builder/SKILL.md) | Plan a feature into a spec / design / tasks doc pack (and optionally one implementation prompt) before anyone writes code. Use when you want a spec, design notes, task plan, ADR, feature breakdown, or AI-ready handoff. |
+| [`frontend-architecture-review`](./skills/frontend-architecture-review/SKILL.md) | Review a frontend diff or branch before a merge against the repo's architecture, shared UI, framework, API, security and privacy (OWASP, LLM features), design system, accessibility and testing conventions; `install` writes the repo's project layer. Use when you want a branch, staged or recent changes reviewed for architecture and code quality. |
 | [`frontend-structure`](./skills/frontend-structure/SKILL.md) | Decide and keep a frontend's folder structure: per type, per feature, per domain, Feature-Sliced Design or Atomic Design; dependency direction, boundaries and import rules; `install` writes the scout-rule section into a repo's AGENTS.md. Use when asking where a file belongs, whether an import is allowed, or how to reorganise folders step by step. |
 
 ## Repository layout
