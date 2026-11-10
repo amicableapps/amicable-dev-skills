@@ -1,0 +1,4 @@
+interface:
+  display_name: "Find REST Combos"
+  short_description: "Find places where a user could create or finish something without leaving the screen, checked against the REST API, and write them up."
+  default_prompt: "Use $find-rest-combos to find combos in this admin area, starting from my example."
